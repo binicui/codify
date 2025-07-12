@@ -1,4 +1,30 @@
 ################################################################################
-#
+# 개발 환경 설정 (Maria DB)
 ################################################################################
+
+spring:
+  config:
+    # 활성화할 프로필명
+    activate:
+      on-profile:
+        - dev
+  # 실사용 데이터베이스 연결 정보 설정
+  datasource:
+    url: jdbc:mariadb://localhost:3306/${DB_NAME}?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
+
+# 서버 설정
+server:
+  port: 8881
+    
+
+
+
+
+
+
+
+
 

@@ -1,4 +1,47 @@
 ################################################################################
-#
+# 공통 환경 설정
 ################################################################################
 
+spring:
+  config:
+    # 활성화할 프로필명
+    activate:
+      on-profile:
+        - common
+  main:
+    # 스프링부트 애플리케이션 런타임시 시작 배너 끄기
+    banner-mode: off
+  # 웹 브라우저의 새로고침을 통해 변경된 화면 내용 즉시 반영을 위한 타임리프 및 정적 리소스 설정
+  thymeleaf:
+    prefix: file:src/main/resources/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+  web:
+    resources:
+      static-locations:
+        - file:src/main/resources/static/
+      cache:
+        # 정적 자원 캐싱 기간 설정
+        period: 36000
+
+# 마이바티스 설정
+mybatis:
+  # 마이바티스 설정 파일(XML) 위치 지정
+  config-location: classpath:mapper/config/mybatis-config.xml
+  # 마이바티스 매퍼 파일(XML) 위치 지정
+  mapper-locations:
+    - classpath:mapper/**/*_mapper.xml
+    - classpath:mapper/*_mapper.xml
+  type-aliases-package: com.bincui.codify.domain.**.dto
+  type-handlers-package: com.bincui.codify.global.common.type.handler
+
+# 서버 설정
+server:
+  servlet:
+    # HTTP 요청 및 응답 인코딩
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true

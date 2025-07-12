@@ -1,4 +1,50 @@
 ################################################################################
-#
+# 로컬 개발 환경 설정 (In-Memory DB)
 ################################################################################
+
+spring:
+  config:
+    # 활성화할 프로필명
+    activate:
+      on-profile:
+        - local
+  # H2 In-Memory 데이터베이스 연결 정보 설정
+  datasource:
+    url: jdbc:h2:mem:codify_h2;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: sa
+    driver-class-name: org.h2.Driver
+  # 실제 운영 데이터베이스가 아니기에 스키마 버전 관리 비활성화
+  flyway:
+    enabled: false
+  # 데이터베이스 초기화 모드
+  sql:
+    init:
+      # 내장 데이터베이스 사용 시 SQL 스크립트 파일 실행
+      mode: EMBEDDED
+      schema-locations:
+        - classpath:sql/schema.sql
+      data-locations:
+        - classpath:sql/data.sql
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+
+# 서버 설정
+server:
+  port: 80
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
