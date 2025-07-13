@@ -1,5 +1,5 @@
 package com.bincui.codify.global.common.type;
 
 
-public interface CodeEnum {
+public class CodeEnumTypeHandler {
 }

@@ -22,9 +22,6 @@ spring:
     resources:
       static-locations:
         - file:src/main/resources/static/
-      cache:
-        # 정적 자원 캐싱 기간 설정
-        period: 36000
 
 # 마이바티스 설정
 mybatis:
