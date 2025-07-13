@@ -32,7 +32,6 @@ mybatis:
     - classpath:mapper/**/*_mapper.xml
     - classpath:mapper/*_mapper.xml
   type-aliases-package: com.bincui.codify.domain.**.dto
-  type-handlers-package: com.bincui.codify.global.common.type.handler
 
 # 서버 설정
 server:

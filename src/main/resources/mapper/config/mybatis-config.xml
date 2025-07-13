@@ -9,4 +9,8 @@
         <setting name="jdbcTypeForNull" value="NULL"/>
         <setting name="callSettersOnNulls" value="true"/>
     </settings>
+
+    <typeHandlers>
+        <package name="com.bincui.codify.global.common.type.CodeEnumTypeHandler"/>
+    </typeHandlers>
 </configuration>
