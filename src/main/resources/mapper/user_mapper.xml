@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bincui.codify.domain.user.mapper.UserMapper">
+    <!-- 회원가입 정보 등록 -->
+    <insert id="insertUser" parameterType="SignUpRequest" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO users (
+            email,
+            password,
+            nickname,
+            name,
+            phone,
+            login_type,
+            enabled,
+            updated_at
+        ) VALUES (
+            #{email},
+            #{password},
+            #{nickname},
+            #{name},
+            #{phone},
+            #{loginType},
+            #{enabled},
+            NOW()
+        )
+    </insert>
+
+    <!-- 사용자 권한 정보 등록 -->
+    <insert id="insertUserRole" parameterType="UserRoleRequest">
+        INSERT INTO user_roles (
+            user_id,
+            role_type,
+            used_yn,
+            updated_at
+        ) VALUES (
+            #{userId},
+            #{roleType},
+            #{usedYn},
+            NOW()
+        )
+    </insert>
+</mapper>
