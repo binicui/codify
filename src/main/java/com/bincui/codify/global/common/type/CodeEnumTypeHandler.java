@@ -8,7 +8,6 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 /**
  * {@link CodeEnum}을 구현한 열거형을 대상으로 데이터베이스 컬럼 간의 매핑을 처리하는 타입 핸들러로,
