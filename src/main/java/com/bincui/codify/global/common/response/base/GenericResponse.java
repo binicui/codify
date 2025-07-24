@@ -19,7 +19,7 @@ public abstract class GenericResponse {
 
     private final String message;
 
-    public GenericResponse(int code, String message) {
+    public GenericResponse(final int code, final String message) {
         this.responseAt = LocalDateTime.now();
         this.code = code;
         this.message = message;

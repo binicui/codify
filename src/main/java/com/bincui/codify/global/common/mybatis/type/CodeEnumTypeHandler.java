@@ -1,4 +1,4 @@
-package com.bincui.codify.global.common.type;
+package com.bincui.codify.global.common.mybatis.type;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
@@ -10,11 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * {@link CodeEnum}을 구현한 열거형을 대상으로 데이터베이스 컬럼 간의 매핑을 처리하는 타입 핸들러.
+ * {@link CodeEnum} 인터페이스를 구현한 {@link Enum}과 데이터베이스 컬럼 간의 매핑을 처리하는 타입핸들러.
  *
- * @param <E> {@link CodeEnumTypeHandler}에서 처리할 열거형
+ * @param <E> 타입핸들러에서 처리할 {@link CodeEnum}의 구현체인 {@link Enum} 타입
+ *
  * @see CodeEnum
  */
+
 @MappedTypes(CodeEnum.class)
 public class CodeEnumTypeHandler<E extends Enum<E> & CodeEnum> extends BaseTypeHandler<E> {
 
@@ -55,21 +57,17 @@ public class CodeEnumTypeHandler<E extends Enum<E> & CodeEnum> extends BaseTypeH
     }
 
     /**
-     * 주어진 코드값과 일치한 값을 가진 열거형 상수를 반환한다.
+     * 주어진 코드값과 일치한 값을 가진 {@link Enum}의 상수를 반환한다.
      *
      * @param code  데이터베이스로부터 읽어들인 코드값
-     * @return      코드값과 일치할 경우 열거형 상수, 없을 경우 {@code null} 반환
+     * @return      주어진 코드값과 일치한 경우 {@link Enum} 상수, 그렇지 않은 경우 {@code null} 반환
      */
     private E codeToEnum(String code) {
-        try {
-            for (E codeEnum : enums) {
-                if (codeEnum.getCode().equals(code)) {
-                    return codeEnum;
-                }
+        for (E constant : enums) {
+            if (constant.getCode().equals(code)) {
+                return constant;
             }
-            return null;
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Cannot convert '" + code + "' to '" + type.getSimpleName() + "'!", e);
         }
+        return null;
     }
 }
