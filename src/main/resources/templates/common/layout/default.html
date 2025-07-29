@@ -12,11 +12,9 @@
     <div id="container" class="">
         <!-- 좌측 사이드 메뉴-->
         <th:block th:replace="~{common/layout/fragments/side_bar :: sideBar}"></th:block>
+        <!-- 페이지별 컨텐츠 -->
         <div id="contents">
-            <th:block layout:fragment="content">
-                <!-- 페이지별 컨텐츠 -->
-                <th:block layout:fragment="content"></th:block>
-            </th:block>
+            <th:block layout:fragment="content"></th:block>
         </div>
     </div>
     <!-- 공통 푸터 -->
