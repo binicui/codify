@@ -1,0 +1,32 @@
+###########################################################################
+# 공통 환경
+###########################################################################
+
+spring:
+  config:
+    activate:
+      on-profile: common
+  main:
+    banner-mode: OFF
+  thymeleaf:
+    prefix: file:src/main/resources/templates/
+    suffix: .html
+    mode: HTML
+    encoding: 'UTF-8'
+    cache: false
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*_mapper.xml
+  type-aliases-package: com.bincui.codify.domain.**.dto
+  type-handlers-package: com.bincui.codify.global.common.type
+
+server:
+  servlet:
+    encoding:
+      charset: 'UTF-8'
+      enabled: true
+      force: true

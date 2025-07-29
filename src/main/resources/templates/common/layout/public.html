@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <!-- 공통 헤드(메타 데이터 + 공통 스타일 시트) -->
+    <th:block th:replace="~{common/layout/fragments/head :: head}"></th:block>
+    <title layout:title-pattern="$LAYOUT_TITLE · $CONTENT_TITLE">코디파이</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="container" class="flex-col centered">
+        <div id="contents">
+            <!-- 페이지별 컨텐츠 -->
+            <th:block layout:fragment="content"></th:block>
+        </div>
+    </div>
+    <!-- 공통 푸터 -->
+    <th:block th:replace="~{common/layout/fragments/footer :: footer}"></th:block>
+</div>
+<!-- 공통 자바스크립트 -->
+<th:block th:replace="~{common/layout/fragments/scripts :: scripts}"></th:block>
+<!-- 페이지별 자바스크립트 -->
+<th:block layout:fragment="page_script"></th:block>
+</body>
+</html>

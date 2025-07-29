@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: codify-v1
+  profiles:
+    include:
+      - common
+    active:
+      - local
