@@ -3,9 +3,12 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <!-- 공통 헤드(메타 데이터 + 공통 스타일 시트) -->
-    <th:block th:replace="~{common/layout/fragments/head :: head}"></th:block>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title layout:title-pattern="$LAYOUT_TITLE · $CONTENT_TITLE">코디파이</title>
+    <!-- 공통 스타일 시트 -->
+    <th:block th:replace="~{common/layout/fragments/head :: head}"></th:block>
 </head>
 <body>
 <div id="wrapper">

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layout/public}">
+<head>
+    <title>회원가입</title>
+    <link rel="stylesheet" href="/css/pages/user/signup.css">
+</head>
+<th:block layout:fragment="content">
+    <div class="panel-container">
+        <div class="panel">
+            <header class="penal-header">
+                <h1 class="panel-heading-title">회원가입</h1>
+            </header>
+            <div class="panel-body">
+                <form id="signup">
+                    <div class="field-container">
+                        <div class="field">
+                            <label for="email" class="label">이메일</label>
+                            <div class="has-addons">
+                                <div class="control">
+                                    <input type="text" name="email" id="email" class="input" autocomplete="off">
+                                </div>
+                                <button type="button" id="existsEmailBtn" class="button is-primary is-fluid">중복 확인</button>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="password" class="label">비밀번호</label>
+                            <div class="control">
+                                <input type="password" name="password" id="password" class="input" autocomplete="off" aria-describedby="passwordHelper">
+                            </div>
+                            <span id="passwordHelper" class="field-help"><i class=""></i> 도움말</span>
+                        </div>
+                        <div class="field">
+                            <label for="confirmPassword" class="label">비밀번호 확인</label>
+                            <div class="control">
+                                <input type="password" name="confirmPassword" id="confirmPassword" class="input" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="nickname" class="label">닉네임</label>
+                            <div class="has-addons">
+                                <div class="control">
+                                    <input type="text" name="nickname" id="nickname" class="input" autocomplete="off" aria-describedby="nicknameHelper">
+                                </div>
+                                <button type="button" id="existsNicknameBtn" class="button is-primary is-fluid">중복 확인</button>
+                            </div>
+                            <span id="nicknameHelper" class="field-help"><i class=""></i> 도움말</span>
+                        </div>
+                        <div class="field">
+                            <label for="name" class="label">이름</label>
+                            <div class="control">
+                                <input type="text" name="name" id="name" class="input" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="phone" class="label">휴대폰 번호</label>
+                            <div class="control">
+                                <input type="text" name="phone" id="phone" class="input" placeholder="하이픈('-') 제외" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field-container">
+                        <div class="field">
+                            <button type="button" id="signupBtn" class="button is-primary">가입하기</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-body has-text-center">
+                이미 가입된 계정이 있으신가요? <a href="/" class="is-text-accent">로그인</a>
+            </div>
+        </div>
+    </div>
+</th:block>
+<!-- 페이지별 자바스크립트 -->
+<th:block layout:fragment="page_script">
+    <script src="/js/pages/signup.js"></script>
+</th:block>
+</html>
