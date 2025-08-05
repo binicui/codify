@@ -5,7 +5,7 @@ import com.bincui.codify.global.common.response.base.ResponseEnum;
 import lombok.Getter;
 
 /**
- * 클라이언트의 요청에 따른 성공 응답을 처리하기 위해 정의한 클래스
+ * 클라이언트의 요청 처리 결과에 대한 성공 응답을 반환하기 위해 정의한 클래스
  *
  * @param <T> 응답 결과 데이터의 타입
  *
